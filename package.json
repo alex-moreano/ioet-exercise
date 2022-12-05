@@ -1,0 +1,25 @@
+{
+  "name": "ioet-exercise",
+  "version": "1.0.0",
+  "description": "exercise from ioet to apply as an intern or developer jr",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/alex-moreano/ioet-exercise.git"
+  },
+  "keywords": [
+    "exercise",
+    "ioet",
+    "alex-moreano"
+  ],
+  "author": "@alex-moreano",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/alex-moreano/ioet-exercise/issues"
+  },
+  "homepage": "https://github.com/alex-moreano/ioet-exercise#readme"
+}
