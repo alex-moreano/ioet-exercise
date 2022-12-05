@@ -27,7 +27,7 @@ let pairEmployees = {};
 for (let i = 0; i < scheduleDaysHours.length; i++) {
     let employee = scheduleDaysHours[i];
 
-    for (let j = 0; j < scheduleDaysHours.length; j++) {
+    for (let j = i+1; j < scheduleDaysHours.length; j++) {
         let employeeTwo = scheduleDaysHours[j];
         let coincidence = 0;
         for (let k = 0; k < employee.scheduleDays.length; k++) {
@@ -40,7 +40,6 @@ for (let i = 0; i < scheduleDaysHours.length; i++) {
         }
         pairEmployees[`${employee.employeeName}-${employeeTwo.employeeName}`] = coincidence;
     }
-    
 }
 
 
