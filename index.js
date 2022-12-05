@@ -2,8 +2,11 @@
 const fs = require('fs');
 const filePath = './data.txt';
 const dataFromFile = fs.readFileSync(filePath, 'utf-8');
-/*************************************************** */
-
+/*************************************************** 
+ * 
+ ASTRID=MO10:15-12:00,TU12:00-14:00,SU20:00-21:00
+ ALEX=MO10:00-12:00,TU11:00-13:00,SU20:30-22:00
+ */
 /*************************************************** */
 
 const dataEmployees = dataFromFile.split('\r\n');
@@ -38,7 +41,7 @@ for (let i = 0; i < scheduleDaysHours.length; i++) {
         for (let k = 0; k < employee.scheduleDays.length; k++) {
             let matchDay = employeeTwo.scheduleDays.includes(employee.scheduleDays[k]);
             let matchHours = employeeTwo.entryHours.includes(employee.entryHours[k]) && employeeTwo.exitHours.includes(employee.exitHours[k]);
-            let matchRange = checkInRange(employeeTwo.entryHours, employeeTwo.exitHours, employee.entryHours[k]);
+            let matchRange = checkInRange(employeeTwo.entryHours, employeeTwo.exitHours, employee.entryHours[k]) || checkInRange(employee.entryHours[k], employee.exitHours[k], employeeTwo.entryHours);
             if((matchDay && matchHours) || (matchDay && matchRange || matchHours)){
                 coincidence++;
             }
