@@ -1,10 +1,22 @@
-let employeesData = new Array();
-let fileTxt = new XMLHttpRequest();
-let fileRoute = 'index.txt';
+/************************************************* */
+const fs = require('fs');
+const filePath = './index.txt';
+const dataFromFile = fs.readFileSync(filePath, 'utf-8');
+/*************************************************** */
 
-fileTxt.open("GET", fileRoute, false);
-fileTxt.send(null);
-let txt = fileTxt.responseText;
+/*************************************************** */
 
-employeesData = txt.split('\r\n');
-console.log(employeesData);
+const dataEmployees = dataFromFile.split('\r\n');
+
+const employeeSchedule = dataEmployees.map((dataEmployee)=>{
+    const [employeeName, employeeSchedule] = dataEmployee.split('=');
+    return {employeeName, employeeSchedule};
+});
+
+const scheduleDaysHours = employeeSchedule.map((dataEmployee)=>{
+    const {employeeName, employeeSchedule} = dataEmployee;
+    const scheduleDays = employeeSchedule.split('-').map((day)=>day.substring(0,2));
+    
+});
+
+console.log(pairEmployeeSchedule);
