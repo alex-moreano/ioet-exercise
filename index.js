@@ -20,9 +20,14 @@ const scheduleDaysHours = employeeSchedule.map((dataEmployee)=>{
     const exitHours = employeeSchedule.split(',').map((hour)=>hour.substring(8,14));
     return {employeeName, scheduleDays, entryHours, exitHours};
 });
+console.log(scheduleDaysHours);
 /********************************************************************* */
 
 let pairEmployees = {};
+
+const checkInRange = (start, end, hourToCheck)=>{
+    return hourToCheck >= start && hourToCheck <= end;
+};
 
 for (let i = 0; i < scheduleDaysHours.length; i++) {
     let employee = scheduleDaysHours[i];
@@ -31,10 +36,10 @@ for (let i = 0; i < scheduleDaysHours.length; i++) {
         let employeeTwo = scheduleDaysHours[j];
         let coincidence = 0;
         for (let k = 0; k < employee.scheduleDays.length; k++) {
-            let day = employee.scheduleDays[k];
-            let entryHour = employee.entryHours[k];
-            let exitHour = employee.exitHours[k];
-            if(employeeTwo.scheduleDays.includes(day) && employeeTwo.entryHours.includes(entryHour) && employeeTwo.exitHours.includes(exitHour)){
+            let matchDay = employeeTwo.scheduleDays.includes(employee.scheduleDays[k]);
+            let matchHours = employeeTwo.entryHours.includes(employee.entryHours[k]) && employeeTwo.exitHours.includes(employee.exitHours[k]);
+            let matchRange = checkInRange(employeeTwo.entryHours, employeeTwo.exitHours, employee.entryHours[k]);
+            if((matchDay && matchHours) || (matchDay && matchRange || matchHours)){
                 coincidence++;
             }
         }
