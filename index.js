@@ -20,7 +20,28 @@ const scheduleDaysHours = employeeSchedule.map((dataEmployee)=>{
     const exitHours = employeeSchedule.split(',').map((hour)=>hour.substring(8,14));
     return {employeeName, scheduleDays, entryHours, exitHours};
 });
+/********************************************************************* */
+
+let pairEmployees = {};
+
+for (let i = 0; i < scheduleDaysHours.length; i++) {
+    let employee = scheduleDaysHours[i];
+
+    for (let j = 0; j < scheduleDaysHours.length; j++) {
+        let employeeTwo = scheduleDaysHours[j];
+        let coincidence = 0;
+        for (let k = 0; k < employee.scheduleDays.length; k++) {
+            let day = employee.scheduleDays[k];
+            let entryHour = employee.entryHours[k];
+            let exitHour = employee.exitHours[k];
+            if(employeeTwo.scheduleDays.includes(day) && employeeTwo.entryHours.includes(entryHour) && employeeTwo.exitHours.includes(exitHour)){
+                coincidence++;
+            }
+        }
+        pairEmployees[`${employee.employeeName}-${employeeTwo.employeeName}`] = coincidence;
+    }
+    
+}
 
 
-
-console.log(scheduleDaysHours);
+console.log(pairEmployees);
