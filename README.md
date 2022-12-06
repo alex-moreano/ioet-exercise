@@ -12,6 +12,7 @@ to see where I am now in my Javascript knowledge :).
 - [My approaching to solve the problem](#My-approaching-to-solve-the-problem)
 - [Stack](#Stack)
 - [Coding](#Coding)
+- [Lessons learned](#Lessons-learned)
 
 ## Authors
 
@@ -200,4 +201,56 @@ const checkInRange = (start, end, hourToCheck)=>{
     return hourToCheck >= start && hourToCheck <= end;
 };
 ```
+To get the coincidences I used a nested loop that iterates over the elements in the employeesData array. For each element, the code pairs it with every other element in the array and checks whether their schedules overlap in any way. If the schedules overlap, the code adds an entry to the pairEmployees object that maps the names of the two employees to the number of days on which their schedules coincide.
+
+The outermost loop uses a variable i (index of the array) to iterate over the elements in employeesData. For each element, the code assigns it to a variable called employee. Then, the code loops over the elements in employeesData again, starting at the next element after employee (which is why j is initialized to i+1). For each of these elements, the code assigns it to a variable called employeeTwo and checks whether their schedules coincide on any days.
+
+If employeeTwo and employee have any common days in their schedules, the code checks whether their hours on those days overlap in any way. If the hours overlap, the code increments a counter called coincidence by one. Finally, if coincidence is greater than zero for a given pair of employees, the code adds an entry to pairEmployees that maps the names of the two employees to the value of coincidence.
+
+```js
+for (let i = 0; i < employeesData.length; i++) {
+    let employee = employeesData[i];
+
+    for (let j = i+1; j < employeesData.length; j++) {
+        let employeeTwo = employeesData[j];
+        let coincidence = 0;
+        for (let k = 0; k < employee.scheduleDays.length; k++) {
+            let matchDay = employeeTwo.scheduleDays.includes(employee.scheduleDays[k]);
+            if(matchDay){
+                let matchHours = employeeTwo.entryHours.includes(employee.entryHours[k])
+                                && employeeTwo.exitHours.includes(employee.exitHours[k]);
+                let matchRange = checkInRange(employeeTwo.entryHours, employeeTwo.exitHours, employee.entryHours[k])
+                                || checkInRange(employee.entryHours[k], employee.exitHours[k], employeeTwo.entryHours);
+                if(matchHours || matchRange){
+                    coincidence++;
+                }
+            }
+        }
+        if(coincidence>0){
+            pairEmployees[`${employee.employeeName}-${employeeTwo.employeeName}`] = coincidence;
+        }
+    }
+}
 ```
+
+To show the results I made through the main.js script.
+```js
+import { pairEmployees } from "./scripts/outputEmployees.js";
+import { employeesData } from "./scripts/getDataEmployees.js";
+
+console.log('This is the data you submitted of your employees: ')
+console.log(employeesData);
+console.log('Output:')
+console.log(pairEmployees);
+```
+## Testing results
+As it's important to make tests to prove the code I made the following tests for each of the modules I created:
+
+<img src="https://i.ibb.co/74TyNmX/testsss.png" alt="testsss" border="0">
+
+And I've got the following results running them:
+
+<img src="https://i.ibb.co/wy2BB5k/results.png" alt="results" border="0">
+
+##Lessons learned
+I learned a lot doing this exercise as I saw what I'm lacking right now and what I have to improve. This was very useful to improve my coding skills and my logical view of a problem, there are a lot of things you could make with this exercise as you put all that you've learned in place here. Doing this exercise was helpful for me to keep improving myself as a developer and not giving up :)
