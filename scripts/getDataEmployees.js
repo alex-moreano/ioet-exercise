@@ -1,7 +1,6 @@
 import { getDataFromFile } from "./getDataFromFile.js";
 
-
-const dataEmployees = getDataFromFile().split('\r\n');
+const dataEmployees = getDataFromFile().split('\n');
     
 const employeeSchedule = dataEmployees.map((dataEmployee)=>{
     const [employeeName, employeeSchedule] = dataEmployee.split('=');
