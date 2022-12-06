@@ -15,19 +15,18 @@ for (let i = 0; i < employeesData.length; i++) {
         for (let k = 0; k < employee.scheduleDays.length; k++) {
             let matchDay = employeeTwo.scheduleDays.includes(employee.scheduleDays[k]);
             if(matchDay){
-                let matchHours = employeeTwo.entryHours.includes(employee.entryHours[k]) && employeeTwo.exitHours.includes(employee.exitHours[k]);
-                let matchRange = checkInRange(employeeTwo.entryHours, employeeTwo.exitHours, employee.entryHours[k]) 
-                                || checkInRange(employee.entryHours[k], employee.exitHours[k], employeeTwo.entryHours)
-                                || checkInRange(employee.entryHours[k], employee.exitHours[k], employeeTwo.entryHours)
+                let matchHours = employeeTwo.entryHours.includes(employee.entryHours[k])
+                                && employeeTwo.exitHours.includes(employee.exitHours[k]);
+                let matchRange = checkInRange(employeeTwo.entryHours, employeeTwo.exitHours, employee.entryHours[k])
                                 || checkInRange(employee.entryHours[k], employee.exitHours[k], employeeTwo.entryHours);
-                if(matchHours){
+                if(matchHours || matchRange){
                     coincidence++;
-                }else if(matchRange){
-                    coincidence ++;
                 }
             }
         }
-        pairEmployees[`${employee.employeeName}-${employeeTwo.employeeName}`] = coincidence;
+        if(coincidence>0){
+            pairEmployees[`${employee.employeeName}-${employeeTwo.employeeName}`] = coincidence;
+        }
     }
 }
 
