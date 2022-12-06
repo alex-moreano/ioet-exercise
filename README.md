@@ -7,7 +7,7 @@ to see where I am now in my Javascript knowledge :).
 - [Authors](#Authors)
 - [Installation](#Installation)
 - [How to run the code](#How-to-run-the-code)
-- [How to run the tests](#How-to-run-the-tests)
+- [How to run tests](#How-to-run-tests)
 - [Description of the problem](#Description-of-the-problem)
 - [My approaching to solve the problem](#My-approaching-to-solve-the-problem)
 - [Stack](#Stack)
