@@ -6,8 +6,8 @@ to see where I am now in my Javascript knowledge :).
 ## Index
 - [Authors](#Authors)
 - [Installation](#Installation)
-- [How to run the code?](#How-to-run-the-code?)
-- [How to run the tests?](#How-to-run-the-tests?)
+- [How to run the code](#How-to-run-the-code)
+- [How to run the tests](#How-to-run-the-tests)
 - [Description of the problem](#Description-of-the-problem)
 - [My approaching to solve the problem](#My-approaching-to-solve-the-problem)
 - [Stack](#Stack)
@@ -41,7 +41,7 @@ git clone https://github.com/alex-moreano/ioet-exercise.git
 3. After that now you can open the tests.
 >I'm using jest for testing purposes. And babel to use import/export modules.
 
-## How to run the code?
+## How to run the code
 
 In the same folder of ioet-exercise, open the CLI and type:
 
