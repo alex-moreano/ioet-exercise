@@ -252,5 +252,5 @@ And I've got the following results running them:
 
 <img src="https://i.ibb.co/wy2BB5k/results.png" alt="results" border="0">
 
-##Lessons learned
+## Lessons learned
 I learned a lot doing this exercise as I saw what I'm lacking right now and what I have to improve. This was very useful to improve my coding skills and my logical view of a problem, there are a lot of things you could make with this exercise as you put all that you've learned in place here. Doing this exercise was helpful for me to keep improving myself as a developer and not giving up :)
