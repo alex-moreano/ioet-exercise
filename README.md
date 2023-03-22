@@ -1,4 +1,4 @@
-# TO PEOPLE WHO READ THIS, THIS EXAMPLE IS JUST AN APPROACHING OF THE SOLUTION, THEY DIDN'T "LIKE" IT THIS SOLUTION. SO USE IT TO GET IDEAS FROM THIS.
+# TO PEOPLE WHO READ THIS, THIS EXAMPLE IS JUST AN APPROACHING OF THE SOLUTION, THEY DIDN'T "LIKE" THIS SOLUTION. SO USE IT TO GET IDEAS FROM THIS.
 # ioet Exercise
 Hi, I'm Alex and this is my solution for the following exercise to apply at ioet as an intern or a software developer jr. I had a great time putting my effort to finish it in the best way possible as I find it challenging
 to see where I am now in my Javascript knowledge :).
